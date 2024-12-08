@@ -1,0 +1,18 @@
+{
+  "name": "403project",
+  "version": "1.0.0",
+  "description": "403 group project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "knex": "^3.1.0",
+    "pg": "^8.13.1"
+  }
+}

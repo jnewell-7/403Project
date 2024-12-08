@@ -1,0 +1,143 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  background-color: #f4f4f9;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #0073e6;
+  color: #ffffff;
+  width: 100%;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.login-button {
+  text-decoration: none;
+  color: #0073e6;
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #e0e7ff;
+}
+
+/* Navigation */
+nav {
+  margin: 1.5rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #0073e6;
+  font-weight: bold;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+  
+}
+
+nav a:hover {
+  color: #004a99;
+  text-decoration: underline;
+}
+
+/* Main Content */
+/* Main styling */
+main {
+  max-width: 800px;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Styling for each section in main */
+main section {
+  margin-bottom: 2rem; /* Space between sections */
+  padding: 1rem;
+  border-bottom: 1px solid #ddd; /* Optional, for section separation */
+}
+
+/* Aligning h2 and p tags in each section */
+main h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+main p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+main ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+main ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+main ul li::before {
+  content: "•"; /* Adds a bullet point */
+  color: #333; /* Bullet color */
+  font-size: 1.2rem; /* Adjust bullet size */
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  background-color: #0073e6;
+  color: #ffffff;
+  font-size: 0.9rem;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+}
