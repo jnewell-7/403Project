@@ -30,21 +30,30 @@
   }
   
   /* Navigation */
-  nav {
+ /* Navigation Styling */
+nav {
+    display: flex;
+    justify-content: center; /* Centers the nav links horizontally */
     margin: 1.5rem 0;
   }
   
   nav ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem; /* Adds spacing between links */
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline; /* Ensures the items are inline */
   }
   
   nav a {
     text-decoration: none;
     color: #0073e6;
     font-weight: bold;
-    padding: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
     transition: color 0.3s ease;
   }
   
@@ -52,6 +61,7 @@
     color: #004a99;
     text-decoration: underline;
   }
+  
   
   /* Main Content */
   main {
