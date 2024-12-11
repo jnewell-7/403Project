@@ -1,3 +1,40 @@
+
+/*nav*/
+/*nav*/
+/* Navigation */
+nav {
+  margin: 1.5rem 0;
+  width: 100%;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  /* padding: 0.5rem 0; */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #0073e6;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover {
+  color: #004a99;
+  background-color: #e0e7ff;
+  border-radius: 5px;
+}
+
+
+
+
+
 /* General page styles */
 body {
   font-family: 'Arial', sans-serif;
