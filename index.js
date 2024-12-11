@@ -91,6 +91,11 @@ app.get("/faqs", (req, res) => {
 });
 
 
+//route for the documents.ejs page
+app.get("/documents", (req, res) => {
+  res.render("documents", { title: "Tax Documents" });
+});
+
 
 // Route to display the procedures page
 app.get('/procedures', (req, res) => {
