@@ -131,13 +131,18 @@ main ul li::before {
   margin-right: 0.5rem;
 }
 
-/* Footer */
-footer {
-  width: 100%;
-  padding: 1rem;
-  text-align: center;
-  background-color: #0073e6;
-  color: #ffffff;
-  font-size: 0.9rem;
-  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
-}
+  /* Footer */
+  footer {
+    width: 100%;
+    position: fixed; /* Ensures it stays at the bottom */
+    bottom: 0;
+    left: 0;
+    background-color: #0073e6;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0; /* Remove any unintended margin */
+  }
+  
