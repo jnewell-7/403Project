@@ -58,7 +58,7 @@ app.get("/login", (req, res) => {
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {
-    const admin = await knex("admins").where({ username }).first();
+    const admin = await knex("users").where({ username }).first();
     if (admin && admin.password === password) {
       // Successful login
       console.log('Success')
