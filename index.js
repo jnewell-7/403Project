@@ -143,6 +143,48 @@ app.post("/addAdmin", async (req, res) => {
   }
 });
   
+app.get("/editAdmin/:adminid", async (req, res) => {
+  const adminId = req.params.adminid; // Extract admin ID from URL
+
+  try {
+    // Fetch the admin's details by ID
+    const admin = await knex("users").where({ user_id: adminId }).first();
+
+    if (admin) {
+      res.render("edituser", { admin }); // Render the form with admin details
+    } else {
+      res.status(404).send("Admin not found");
+    }
+  } catch (error) {
+    console.error("Error fetching admin:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+
+app.post("/editAdmin/:adminid", async (req, res) => {
+  const adminId = req.params.adminid; // Extract admin ID from URL
+  const { username, email, password, role } = req.body; // Extract updated details from the form
+
+  try {
+    // Update the admin's details in the database
+    await knex("users")
+      .where({ user_id: adminId })
+      .update({
+        username,
+        email,
+        password,
+        role,
+        created_at: new Date(), // Optionally track when the admin was last updated
+      });
+
+    // Redirect back to the admin list page after updating
+    res.redirect("/users");
+  } catch (error) {
+    console.error("Error updating admin:", error);
+    res.status(500).send("Failed to update admin.");
+  }
+});
 
   app.get('/procedures/pdf', (req, res) => {
     const filePath = path.join(__dirname, 'public', 'files', 'whenandwhere.pdf');
