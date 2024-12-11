@@ -80,6 +80,11 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// Route to display the procedures page
+app.get('/procedures', (req, res) => {
+  res.render('procedures');
+});
+
 
 
 
