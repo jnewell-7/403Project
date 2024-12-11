@@ -86,12 +86,27 @@ knex
 
 
 // FAQ Get Route
-app.get("/faqs", (req, res) => {
-  res.render("faq", {
-    title: "FAQs",
-    errorMessage: null
-  });
+app.get("/faqs", async (req, res) => {
+  try {
+    // Fetch FAQs and their associated categories
+    const faqs = await knex("faqs")
+      .join("categories", "faqs.category_id", "=", "categories.category_id")
+      .select("faqs.faq_id", "faqs.question", "faqs.answer", "categories.name AS category_name");
+    
+    // Group FAQs by category for easier rendering
+    const groupedFaqs = faqs.reduce((acc, faq) => {
+      acc[faq.category_name] = acc[faq.category_name] || [];
+      acc[faq.category_name].push({ question: faq.question, answer: faq.answer });
+      return acc;
+    }, {});
+
+    res.render("faqs", { groupedFaqs });
+  } catch (error) {
+    console.error("Error fetching FAQs:", error);
+    res.status(500).send("An error occurred while fetching FAQs.");
+  }
 });
+
 
 
 
