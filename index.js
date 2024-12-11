@@ -94,6 +94,26 @@ app.get('/users', async (req, res) => {
   }
 });
 
+
+// Ensure the route is using POST method
+app.post('/deleteAdmin/:user_id', async (req, res) => {
+  const { user_id } = req.params;
+
+  try {
+    // Deleting the admin by user_id
+    await knex('users')
+      .where({ user_id })
+      .del();
+
+    // Redirect back to the user management page
+    res.redirect('/users');
+  } catch (error) {
+    console.error("Error deleting admin:", error);
+    res.status(500).send("Failed to delete admin.");
+  }
+});
+
+
   
 
   app.get('/procedures/pdf', (req, res) => {
