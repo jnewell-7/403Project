@@ -97,14 +97,14 @@
   
   .btn {
     display: inline-block;
-    margin: 0.5rem;
-    padding: 0.8rem 1.2rem;
-    font-size: 1rem;
+    margin: 0.3rem; /* Reduced margin */
+    padding: 0.4rem 0.8rem; /* Reduced padding */
+    font-size: 0.9rem; /* Slightly smaller font size */
     font-weight: bold;
     color: #ffffff;
     background-color: #0073e6;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px; /* Slightly smaller radius */
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
