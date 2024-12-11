@@ -6,6 +6,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tax Hawk Support Knowledgebase</title>
   <link rel="stylesheet" href="/styles/index.css">
+  <style>
+    /* Scoped Styles for FAQ Page */
+    .faq-page {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px 0;
+    }
+
+    .faq-page .faq-container {
+      width: 900px;
+      min-height: 600px; /* Prevents the box from resizing */
+      margin: auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-page .faq-category {
+      margin-bottom: 30px;
+    }
+
+    .faq-page .faq-category-title {
+      font-size: 1.5em;
+      color: #004080;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #004080;
+      padding-bottom: 5px;
+      text-transform: capitalize; /* Automatically capitalizes category titles */
+    }
+
+    .faq-page .faq-item {
+      margin: 15px 0;
+    }
+
+    .faq-page .faq-question {
+      font-weight: bold;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .faq-page .faq-question:hover {
+      background-color: #e0e0e0;
+    }
+
+    .faq-page .faq-answer {
+      display: none;
+      padding: 10px;
+      margin-top: 5px;
+      border-left: 3px solid #004080;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -25,12 +82,61 @@
     </ul>
   </nav>
 
-
+  <!-- FAQs Section -->
+  <div class="faq-page">
+    <div class="faq-container">
+      <h1>FAQs</h1>
+      <% for (let category in groupedFaqs) { %>
+        <div class="faq-category">
+          <div class="faq-category-title"><%= category %></div>
+          <% groupedFaqs[category].forEach(faq => { %>
+            <div class="faq-item">
+              <div>
+                <%= console.log("FAQ ID:", faq.faq_id) %> <!-- Logs the value during rendering -->
+              </div>
+              <div class="faq-question" onclick="toggleAnswer('<%= faq.faq_id %>')">
+                <%= faq.question %>
+              </div>
+              <div class="faq-answer" id="answer-<%= faq.faq_id %>">
+                <%= faq.answer %>
+              </div>
+                                      
+            </div>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+  </div>
 
   <!-- Footer Section -->
   <footer>
     <p>&copy; <%= new Date().getFullYear() %> Tax Hawk Inc. | Internal Use Only</p>
   </footer>
+
+  <script>
+    function toggleAnswer(faqId) {
+  console.log("Toggling answer for ID:", faqId); // Debugging line
+
+  // Find the answer element for the clicked question
+  const answerElement = document.getElementById(`answer-${faqId}`);
+  
+  if (!answerElement) {
+    console.error(`No element found with ID: answer-${faqId}`);
+    return;
+  }
+
+  // Hide all other answers first
+  document.querySelectorAll('.faq-answer').forEach(answer => {
+    answer.style.display = "none";
+  });
+
+  // Toggle visibility of the selected answer
+  answerElement.style.display = answerElement.style.display === "block" ? "none" : "block";
+}
+
+
+
+  </script>
 </body>
 
 </html>

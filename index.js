@@ -90,15 +90,23 @@ app.get("/faqs", async (req, res) => {
   try {
     // Fetch FAQs and their associated categories
     const faqs = await knex("faqs")
-      .join("categories", "faqs.category_id", "=", "categories.category_id")
-      .select("faqs.faq_id", "faqs.question", "faqs.answer", "categories.name AS category_name");
+  .join("categories", "faqs.category_id", "=", "categories.category_id")
+  .select("faqs.faq_id", "faqs.question", "faqs.answer", "categories.name AS category_name");
+
     
     // Group FAQs by category for easier rendering
     const groupedFaqs = faqs.reduce((acc, faq) => {
       acc[faq.category_name] = acc[faq.category_name] || [];
-      acc[faq.category_name].push({ question: faq.question, answer: faq.answer });
+      acc[faq.category_name].push({
+        faq_id: faq.faq_id, // Include faq_id
+        question: faq.question,
+        answer: faq.answer,
+      });
       return acc;
     }, {});
+    
+
+    console.log("Grouped FAQs:", groupedFaqs);
 
     res.render("faqs", { groupedFaqs });
   } catch (error) {
