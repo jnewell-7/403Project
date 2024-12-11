@@ -1,7 +1,64 @@
-/* Centering the documents container */
-.documents-container {
-    max-width: 600px;
-    margin: 3rem auto;
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Body Styling */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #0073e6;
+    color: #ffffff;
+    width: 100%;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+  }
+  
+  /* Navigation */
+  nav {
+    margin: 1.5rem 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #0073e6;
+    font-weight: bold;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #004a99;
+    text-decoration: underline;
+  }
+  
+  /* Main Content */
+  main {
+    flex: 1; /* Ensures the footer is pushed to the bottom */
+    max-width: 800px;
+    width: 90%;
+    margin: 2rem auto;
     padding: 2rem;
     background-color: #ffffff;
     border-radius: 8px;
@@ -9,65 +66,66 @@
     text-align: center;
   }
   
-  /* Title styling */
-  .documents-container h2 {
+  main h2 {
     font-size: 1.8rem;
-    color: #333;
+    color: #0056b3;
     margin-bottom: 1rem;
   }
   
-  /* Document sections styling */
-  .documents-container article {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    border-bottom: 1px solid #ddd;
-    text-align: left; /* Align titles and descriptions to the left */
+  main p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
   
-  .documents-container article h3 {
+  .document-item {
+    margin-bottom: 2rem;
+  }
+  
+  .document-item h3 {
     font-size: 1.3rem;
-    color: #0056b3;
+    color: #0073e6;
     margin-bottom: 0.5rem;
   }
   
-  .documents-container article p {
+  .document-item p {
     font-size: 1rem;
     color: #555;
     margin-bottom: 1rem;
-    line-height: 1.5;
   }
   
-  /* Links styling for documents and instructions */
-  .documents-container ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .documents-container ul li {
-    margin: 0.5rem 0;
-  }
-  
-  .documents-container ul li a {
-    color: #0073e6;
-    text-decoration: none;
+  .btn {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.8rem 1.2rem;
     font-size: 1rem;
     font-weight: bold;
-    transition: color 0.3s ease;
+    color: #ffffff;
+    background-color: #0073e6;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
-  .documents-container ul li a:hover {
-    color: #005bb5;
-    text-decoration: underline;
+  .btn:hover {
+    background-color: #005bb5;
   }
   
-  /* Footer styling */
+  /* Footer */
   footer {
-    margin-top: 2rem;
-    padding: 1rem;
+    width: 100%;
+    position: fixed; /* Ensures it stays at the bottom */
+    bottom: 0;
+    left: 0;
     background-color: #0073e6;
     color: #ffffff;
-    font-size: 0.9rem;
     text-align: center;
-    border-radius: 0 0 8px 8px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0; /* Remove any unintended margin */
   }
   
