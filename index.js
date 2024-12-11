@@ -79,7 +79,10 @@ knex
   });
   
 
-
+  app.get('/procedures/pdf', (req, res) => {
+    const filePath = path.join(__dirname, 'public', 'files', 'whenandwhere.pdf');
+    res.sendFile(filePath);
+  });
 
 
 // FAQ Get Route
