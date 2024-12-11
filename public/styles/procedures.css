@@ -54,11 +54,12 @@ nav a {
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-nav a:hover {
-  color: #004a99;
-  background-color: #e0e7ff;
-  border-radius: 5px;
-}
+  nav a:hover {
+    border-radius: 5px;
+    color: #004a99;
+    text-decoration: underline;
+  }
+
 
 /* Main Content */
 main {
