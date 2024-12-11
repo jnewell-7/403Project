@@ -94,18 +94,21 @@ app.get('/users', async (req, res) => {
   }
 });
 
-
-// Ensure the route is using POST method
+//delete admin
 app.post('/deleteAdmin/:user_id', async (req, res) => {
   const { user_id } = req.params;
 
+  console.log("Delete request received for user_id:", user_id); // Logs the user_id
+
   try {
-    // Deleting the admin by user_id
+    // Delete the admin with the provided user_id
     await knex('users')
       .where({ user_id })
       .del();
 
-    // Redirect back to the user management page
+    console.log(`Admin with user_id ${user_id} deleted successfully.`);
+
+    // Redirect back to the user list page
     res.redirect('/users');
   } catch (error) {
     console.error("Error deleting admin:", error);
