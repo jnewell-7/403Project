@@ -116,7 +116,32 @@ app.post('/deleteAdmin/:user_id', async (req, res) => {
   }
 });
 
+// Route to display the "Add New Admin" form
+app.get("/addAdmin", (req, res) => {
+  res.render("addadmin");
+});
 
+// Route to handle the form submission for adding a new admin
+app.post("/addAdmin", async (req, res) => {
+  const { username, email, password, role } = req.body;
+
+  try {
+    // Insert the new admin into the database
+    await knex("users").insert({
+      username,
+      email,
+      password,
+      role,
+      created_at: new Date(), // Automatically set the creation date
+    });
+
+    // Redirect to the users list page after adding the admin
+    res.redirect("/users");
+  } catch (error) {
+    console.error("Error adding admin:", error);
+    res.status(500).send("Failed to add new admin.");
+  }
+});
   
 
   app.get('/procedures/pdf', (req, res) => {
