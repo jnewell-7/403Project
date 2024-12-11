@@ -54,6 +54,14 @@ app.get("/login", (req, res) => {
   });
 });
 
+// FAQ Get Route
+app.get("/faqs", (req, res) => {
+  res.render("faq", {
+    title: "FAQs",
+    errorMessage: null
+  });
+});
+
 
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
