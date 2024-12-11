@@ -123,8 +123,6 @@ app.get("/faqs", async (req, res) => {
     }, {});
     
 
-    console.log("Grouped FAQs:", groupedFaqs);
-
     res.render("faqs", { groupedFaqs });
   } catch (error) {
     console.error("Error fetching FAQs:", error);
