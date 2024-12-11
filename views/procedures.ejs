@@ -7,20 +7,32 @@
   <link rel="stylesheet" href="/styles/procedures.css">
 </head>
 <body>
+  <!-- Header Section -->
   <header>
     <h1>Procedures</h1>
   </header>
 
+  <!-- Navigation Section -->
+  <nav>
+    <ul>
+      <li><a href="/index">Home</a></li>
+      <li><a href="/faqs">FAQs</a></li>
+      <li><a href="/documents">Tax Documents</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Section -->
   <main>
     <h2>When & Where to Escalate</h2>
     <p>The document below provides detailed guidelines on when and where to escalate customer issues:</p>
     
     <!-- Embed the PDF -->
-    <iframe src="/public/When & Where to Escalate.pdf" width="100%" height="600px">
-      Your browser does not support PDFs. <a href="/public/When & Where to Escalate.pdf">Download the PDF</a> to view it.
+    <iframe src="/procedures/pdf" width="100%" height="600px">
+      Your browser does not support PDFs. <a href="/procedures/pdf">Download the PDF</a> to view it.
     </iframe>
   </main>
 
+  <!-- Footer Section -->
   <footer>
     <p>&copy; <%= new Date().getFullYear() %> Tax Hawk Inc.</p>
   </footer>
