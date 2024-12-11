@@ -144,12 +144,4 @@ app.get('/procedures', (req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
 app.listen(port, () => console.log(`Server is listening!`));
