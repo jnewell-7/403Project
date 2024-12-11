@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Users List</title>
+  <link rel="stylesheet" href="/styles/users.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Admin Users List</h1>
+    </header>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Role</th>
+            <th>Created At</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(user => { %>
+            <tr>
+              <td><%= user.username %></td>
+              <td><%= user.email %></td>
+              <td><%= user.password %></td> <!-- Displaying the password column -->
+              <td><%= user.role %></td> <!-- Displaying the role column -->
+              <td><%= user.created_at %></td> <!-- Displaying the created_at column -->
+              <td>
+                <a href="/editAdmin/<%= user.user_id %>" class="button edit">Edit</a>
+                <form action="/deleteAdmin/<%= user.user_id %>" method="POST" class="delete-form">
+                  <button type="submit" class="button delete">Delete</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="button-container">
+      <a href="/addAdmin" class="button add">Add New Admin</a>
+    </div>
+  </div>
+</body>
+
+</html>

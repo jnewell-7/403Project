@@ -77,6 +77,23 @@ knex
   app.get("/index", (req, res) => {
     res.render("index", { title: "Home Page" });
   });
+
+
+// Route to display the users page with the correct columns
+app.get('/users', async (req, res) => {
+  try {
+    // Fetch all users (admins) data from the database
+    const users = await knex("users")
+      .select("user_id", "username", "email", "password", "role", "created_at") // Include password, role, and created_at
+      .orderBy("user_id", "asc");
+
+    res.render('users', { users });
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).send("Failed to load users.");
+  }
+});
+
   
 
   app.get('/procedures/pdf', (req, res) => {
