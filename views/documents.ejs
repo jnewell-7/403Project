@@ -28,47 +28,18 @@
     <p>Below are commonly used tax documents and their respective instructions:</p>
 
     <!-- Document Section -->
-    <section>
-      <!-- Form W-2 -->
-      <div class="document-item">
-        <h3>Form W-2: Wage and Tax Statement</h3>
-        <p>This form reports wages paid to employees and the taxes withheld from them.</p>
-        <a href="/files/Form-W2.pdf" class="btn" target="_blank">Download Form W-2</a>
-        <a href="/files/Form-W2-Instructions.pdf" class="btn" target="_blank">Instructions for Form W-2</a>
-      </div>
-
-      <!-- Form 1040 -->
-      <div class="document-item">
-        <h3>Form 1040: U.S. Individual Income Tax Return</h3>
-        <p>Use this form to file your annual income tax return with the IRS.</p>
-        <a href="/files/Form-1040.pdf" class="btn" target="_blank">Download Form 1040</a>
-        <a href="/files/Form-1040-Instructions.pdf" class="btn" target="_blank">Instructions for Form 1040</a>
-      </div>
-
-      <!-- Form 1099 -->
-      <div class="document-item">
-        <h3>Form 1099: Miscellaneous Income</h3>
-        <p>Report miscellaneous income such as rent, royalties, and other non-wage payments with this form.</p>
-        <a href="/files/Form-1099.pdf" class="btn" target="_blank">Download Form 1099</a>
-        <a href="/files/Form-1099-Instructions.pdf" class="btn" target="_blank">Instructions for Form 1099</a>
-      </div>
-
-      <!-- Form W-9 -->
-      <div class="document-item">
-        <h3>Form W-9: Request for Taxpayer Identification Number</h3>
-        <p>Provide your taxpayer identification number (TIN) to requestors using this form.</p>
-        <a href="/files/Form-W9.pdf" class="btn" target="_blank">Download Form W-9</a>
-        <a href="/files/Form-W9-Instructions.pdf" class="btn" target="_blank">Instructions for Form W-9</a>
-      </div>
-
-      <!-- Form 941 -->
-      <div class="document-item">
-        <h3>Form 941: Employer's Quarterly Federal Tax Return</h3>
-        <p>Use this form to report employment taxes for each quarter.</p>
-        <a href="/files/Form-941.pdf" class="btn" target="_blank">Download Form 941</a>
-        <a href="/files/Form-941-Instructions.pdf" class="btn" target="_blank">Instructions for Form 941</a>
-      </div>
-    </section>
+        <!-- Document Section -->
+        <section>
+          <% documents.forEach(doc => { %>
+            <div class="document-item">
+              <h3><%= doc.title %></h3>
+              <p><%= doc.description %></p>
+              <a href="<%= doc.download_link %>" class="btn" target="_blank">Download <%= doc.title.split(":")[0] %></a>
+              <a href="<%= doc.instructions_link %>" class="btn" target="_blank">Instructions for <%= doc.title.split(":")[0] %></a>
+            </div>
+          <% }); %>
+        </section>
+        
   </main>
 
   <!-- Footer Section -->

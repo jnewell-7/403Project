@@ -221,10 +221,16 @@ app.get("/faqs", async (req, res) => {
 });
 
 
-//route for the documents.ejs page
-app.get("/documents", (req, res) => {
-  res.render("documents", { title: "Tax Documents" });
+app.get("/documents", async (req, res) => {
+  try {
+    const documents = await knex.select("*").from("documents");
+    res.render("documents", { title: "Tax Documents", documents });
+  } catch (error) {
+    console.error("Error fetching documents:", error);
+    res.status(500).send("An error occurred while fetching documents.");
+  }
 });
+
 
 
 

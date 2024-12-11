@@ -93,7 +93,6 @@
           <% groupedFaqs[category].forEach(faq => { %>
             <div class="faq-item">
               <div>
-                <%= console.log("FAQ ID:", faq.faq_id) %> <!-- Logs the value during rendering -->
               </div>
               <div class="faq-question" onclick="toggleAnswer('<%= faq.faq_id %>')">
                 <%= faq.question %>
