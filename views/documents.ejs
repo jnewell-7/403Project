@@ -24,28 +24,47 @@
   </nav>
 
   <!-- Main Content Section -->
-  <main>
-    <h2>Popular Tax Documents</h2>
-    <p>Below are commonly used tax documents and their respective instructions:</p>
+<main>
+  <h2>Popular Tax Documents</h2>
+  <p>Below are commonly used tax documents and their respective instructions:</p>
 
-    <!-- Document Section -->
-        <!-- Document Section -->
-        <section>
-          <% documents.forEach(doc => { %>
-            <div class="document-item">
-              <h3><%= doc.title %></h3>
-              <p><%= doc.description %></p>
-              <a href="<%= doc.download_link %>" class="btn" target="_blank">Download <%= doc.title.split(":")[0] %></a>
-              <a href="<%= doc.instructions_link %>" class="btn" target="_blank">Instructions for <%= doc.title.split(":")[0] %></a>
-            </div>
-          <% }); %>
-        </section>
-        
-  </main>
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="search-bar" placeholder="Search for documents..." />
+  </div>
 
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; <%= new Date().getFullYear() %> Tax Hawk Inc.</p>
-  </footer>
-</body>
-</html>
+  <!-- Document Section -->
+  <section id="document-list">
+    <% documents.forEach(doc => { %>
+      <div class="document-item">
+        <h3><%= doc.title %></h3>
+        <p><%= doc.description %></p>
+        <a href="<%= doc.download_link %>" class="btn" target="_blank">Download <%= doc.title.split(":")[0] %></a>
+        <a href="<%= doc.instructions_link %>" class="btn" target="_blank">Instructions for <%= doc.title.split(":")[0] %></a>
+      </div>
+    <% }); %>
+  </section>
+</main>
+
+<script>
+  // Search bar functionality
+  const searchBar = document.getElementById('search-bar');
+  const documentList = document.getElementById('document-list');
+  
+  searchBar.addEventListener('input', function () {
+    const query = searchBar.value.toLowerCase();
+    const items = documentList.getElementsByClassName('document-item');
+
+    // Filter the documents based on the search query
+    Array.from(items).forEach(item => {
+      const title = item.querySelector('h3').textContent.toLowerCase();
+      const description = item.querySelector('p').textContent.toLowerCase();
+      
+      if (title.includes(query) || description.includes(query)) {
+        item.style.display = ''; // Show matching items
+      } else {
+        item.style.display = 'none'; // Hide non-matching items
+      }
+    });
+  });
+</script>
